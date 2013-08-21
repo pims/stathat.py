@@ -9,15 +9,23 @@ Usage::
     >>> stats = StatHat('me@kennethreitz.com')
     >>> stats.count('wtfs/minute', 10)
     True
-    >>> stats.count('connections.active', 85092)
+    >>> stats.value('connections.active', 85092)
     True
 
 Enjoy.
 
+
+Batch usage::
+
+    >>> from stathat import StatHat
+    >>> stats = StatHat('xxxxxxxx', buffer_size=10)
+    >>> stats.add('count', 'wtfs/minute', 10) # will buffer
+    >>> stats.add('value', 'connections.active', 85092)
+    >>> stats.flush() # optional, happens automatically when buffer_size is reached
 
 Installation
 ------------
 
 Installation is simple::
 
-    $ pip install stathat
+    $ pip install git+git://github.com/pims/stathat.py.git
