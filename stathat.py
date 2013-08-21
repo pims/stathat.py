@@ -49,7 +49,7 @@ class StatHat(object):
     STATHAT_CMD_COUNT = 'count'
     STATHAT_CMD_VALUE = 'value'
 
-    def __init__(self, ezkey, **kwargs):
+    def __init__(self, ezkey=None, **kwargs):
         self.ezkey = ezkey
 
         # Enable keep-alive and connection-pooling.
